@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Inicio</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+
+	<!-- Bootstrap core CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+	<!-- Estilos personalizados para la plantilla -->
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+
+	<link href="css/bootstrap-toggle.min.css" rel="stylesheet"/>
+	
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+
+
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-static-top navbar-inverse" style="margin-bottom: 40px" >
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand">
+                    <img class="img-logo" alt="Brand" src="image/logo.png">
+                </a>
+				<a class="navbar-brand" href="inicio.html">
+                    Home Security
+                </a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+			
+				<ul class="nav navbar-nav navbar-right">
+                    <li><a href="inicio.html"><span class="glyphicon glyphicon-home " aria-hidden="true"></span> Inicio</a></li>
+                    <li><a href="config.html"><span class="glyphicon glyphicon-cog " aria-hidden="true"></span> Configuración</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user " aria-hidden="true"></span> Nombre Usuario <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="perfil.html"><span class="glyphicon glyphicon-pencil " aria-hidden="true"></span> Editar Perfil</a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li><a href="index.html"><span class="glyphicon glyphicon-off " aria-hidden="true"></span> Salir</a></li>
+                        </ul>
+                    </li>
+                </ul>			
+
+			</div><!--/.nav-collapse -->
+		</div>
+	</nav>
+
+	<div class="container">
+
+	<div class="row">
+		<!-- Colunas -->
+		<div class="col-sm-12 visible-xs"> 						<!-- Coluna para las secciones -->
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4><strong>Secciones</strong></h4>
+				</div>
+				<div class="panel-body">
+					<ul class="nav nav-stacked" id="sidebar">
+
+						<li><a href="#luces"><span class="glyphicon glyphicon-lamp " aria-hidden="true"></span> Luces</a></li>
+						<li><a href="#simulacion"><span class="glyphicon glyphicon-time " aria-hidden="true"></span> Simulación</a></li>
+						<li><a href="#camara"><span class="glyphicon glyphicon-camera " aria-hidden="true"></span> Camara</a></li>
+						<li><a href="#recordatorio"><span class="glyphicon glyphicon-comment " aria-hidden="true"></span> Recordatorios</a></li>
+					</ul>
+				</div>
+
+			</div> 
+		</div> 
+		<!-- Fin Coluna secciones -->
+		<div class="col-md-12">						<!-- Coluna Panel de control-->
+
+
+
+			<div class="row"> 						<!-- Colunas elementos panel de contro -->
+				<div class="col-lg-7 col-md-6">
+
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="text-center"><strong>Panel de Control</strong></h3>
+							
+						</div>
+						<div class="panel-body">
+							<h4>
+								<p class="pull-right">
+									<label id="{{ 'lb' . $PRF_ALARMA . $estado_alarma->id }}">
+										<input id="{{ 'ch' . $PRF_ALARMA . $estado_alarma->id }}" 
+										type="checkbox" 
+										data-toggle="toggle"
+										data-width="75" 
+										data-on="On <i class='fa fa-bell-o'></i>" 
+										data-off="Off <i class='fa fa-bell-o'></i>"
+										data-onstyle="success" 
+										checked/>
+									</label>
+								</p>
+								<strong>Alarma</strong>
+							</h4>
+							<hr/>
+							<p class="help-block">
+								Descripcion
+							</p>
+						</div>
+					</div>
+
+					<div class="panel panel-default" id="luces">
+						<div class="panel-heading">
+							<h4>
+								<a href="#addlampara"  data-toggle="modal" class="pull-right">
+									<span class="glyphicon glyphicon-star-empty " aria-hidden="true"></span> Nuevo
+								</a>
+								<strong>Luces</strong>
+
+							</h4>
+						</div>
+						<div class="panel-body">
+
+							<div class="row">
+
+								<div class="col-md-6 col-xs-6">
+									<p><strong>Estancia: </strong>Sala</p>
+									<span class="help-block">Lampara principal</span>
+								</div>
+
+								<div class="col-md-6 col-xs-6 ">
+									<p class="pull-right">
+										<label id="alarma">
+											<input id="al" 
+											type="checkbox" 
+											data-toggle="toggle" 
+											data-on="On <i class='fa fa-lightbulb-o'></i>" 
+											data-off="Off <i class='fa fa-lightbulb-o'></i>" 
+											data-onstyle="success" 
+											data-width="75" 
+											checked/>
+										</label>
+									</p>
+								</div>
+							</div>
+			
+
+							<div class="row">
+								<div class="col-md-6  col-sm-6 ">
+									<div class="row">
+										<div class="col-md-6 col-sm-6 col-xs-6">							
+											<button type="submit" class="btn btn-warning btn-block">Editar</button>
+										</div>
+										<div class="col-md-6 col-sm-6 col-xs-6">
+										
+											<button type="submit" class="btn btn-danger btn-block">Eliminar</button>
+										</div>
+								 	</div>
+								</div>	
+								<div class="col-md-6  col-sm-6 "></div>									
+								
+							</div>
+											
+							<hr/>
+
+							<div class="row">
+
+								<div class="col-md-6 col-xs-6">
+									<p><strong>Estancia: </strong>Comedor</p>
+									<span class="help-block">Lampara ubicada a la derecha de la cosina</span>
+								</div>
+
+								<div class="col-md-6 col-xs-6 ">
+									<p class="pull-right">
+										<label id="dorm">
+											<input id="dorm23" 
+											type="checkbox" 
+											data-toggle="toggle" 
+											data-on="On <i class='fa fa-lightbulb-o'></i>" 
+											data-off="Off <i class='fa fa-lightbulb-o'></i>" 
+											data-onstyle="success" 
+											data-width="75" 
+											/>
+										</label>
+									</p>
+								</div>
+							</div>
+			
+							
+							<div class="row">
+								<div class="col-md-6  col-sm-6 ">
+									<div class="row">
+										<div class="col-md-6 col-sm-6 col-xs-6">							
+											<button type="submit" class="btn btn-warning btn-block">Editar</button>
+										</div>
+										<div class="col-md-6 col-sm-6 col-xs-6">
+										
+											<button type="submit" class="btn btn-danger btn-block">Eliminar</button>
+										</div>
+								 	</div>
+								</div>	
+								<div class="col-md-6  col-sm-6 "></div>									
+								
+							</div>
+
+							<hr/>
+
+							<div class="row">
+
+								<div class="col-md-6 col-xs-6">
+									<p><strong>Dormitorio: </strong>Comedor</p>
+									<span class="help-block">Dormitorio de Juan</span>
+								</div>
+
+								<div class="col-md-6 col-xs-6 ">
+									<p class="pull-right">
+										<label id="dorm">
+											<input id="dorm23" 
+											type="checkbox" 
+											data-toggle="toggle" 
+											data-on="On <i class='fa fa-lightbulb-o'></i>" 
+											data-off="Off <i class='fa fa-lightbulb-o'></i>" 
+											data-onstyle="success" 
+											data-width="75"
+											checked 
+											/>
+										</label>
+									</p>
+								</div>
+							</div>
+			
+
+							<div class="row">
+								<div class="col-md-6  col-sm-6 ">
+									<div class="row">
+										<div class="col-md-6 col-sm-6 col-xs-6">							
+											<button type="submit" class="btn btn-warning btn-block">Editar</button>
+										</div>
+										<div class="col-md-6 col-sm-6 col-xs-6">
+										
+											<button type="submit" class="btn btn-danger btn-block">Eliminar</button>
+										</div>
+								 	</div>
+								</div>	
+								<div class="col-md-6  col-sm-6 "></div>									
+								
+							</div>
+									
+											
+							<hr/>
+
+							<div class="row">
+
+								<div class="col-md-6 col-xs-6">
+									<p><strong>Dormitorio: </strong>Comedor</p>
+									<span class="help-block">Dormitorio de Ana</span>
+								</div>
+
+								<div class="col-md-6 col-xs-6 ">
+									<p class="pull-right">
+										<label id="dorm">
+											<input id="dorm23" 
+											type="checkbox" 
+											data-toggle="toggle" 
+											data-on="On <i class='fa fa-lightbulb-o'></i>" 
+											data-off="Off <i class='fa fa-lightbulb-o'></i>" 
+											data-onstyle="success" 
+											data-width="75" 
+											/>
+										</label>
+									</p>
+								</div>
+							</div>
+			
+
+							<div class="row">
+								<div class="col-md-6  col-sm-6 ">
+									<div class="row">
+										<div class="col-md-6 col-sm-6 col-xs-6">							
+											<button type="submit" class="btn btn-warning btn-block">Editar</button>
+										</div>
+										<div class="col-md-6 col-sm-6 col-xs-6">
+										
+											<button type="submit" class="btn btn-danger btn-block">Eliminar</button>
+										</div>
+								 	</div>
+								</div>	
+								<div class="col-md-6  col-sm-6 "></div>									
+								
+							</div>
+									
+											
+							<hr/>
+							
+							
+						</div>
+					</div>
+
+					<div class="panel panel-default" id="simulacion">
+						<div class="panel-heading">
+							<h4><strong>Simulacion</strong></h4>
+						</div>
+						<div class="panel-body">
+
+							<p class="pull-right">
+								<input type="checkbox" 
+								data-toggle="toggle" 
+								data-width="75"
+								data-on="On <i class='fa fa-clock-o'></i>" 
+								data-off="Off <i class='fa fa-clock-o'></i>"
+								data-onstyle="success"  />
+							</p>
+
+							<p><strong>Estado Actual</strong></p>
+							<hr/>
+							<p class="help-block"><strong>Detalle</strong></p>
+							<p class="help-block"><strong>Duracion:</strong> 15 min</p>
+							<p class="help-block"><strong>Programada:</strong> Si</p>
+							<p class="help-block"><strong>Durante</strong> 10 min</p>
+						</div>
+					</div>
+
+				</div>
+				
+				<div class="col-lg-5 col-md-6" id="recordatorio">
+					
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4>
+								<a href="#addrecordatorio"  data-toggle="modal" class="pull-right">
+									<span class="glyphicon glyphicon-star-empty " aria-hidden="true"></span> Nuevo
+								</a>
+								<strong>Recordatorios</strong>
+							</h4>
+						</div>
+						<div class="panel-body">
+							<ul class="list-group">
+
+								<li class="list-group-item">
+									<p class="list-group-item-heading help-block pull-right"><strong>Autor: </strong>Usuario 1</p>
+									<h4 class="list-group-item-heading"><strong>Limpiar la sala</strong></h4>
+									<hr/>
+									<p class="list-group-item-text">Quitar los polvos de los muebles y barrer</p>
+									<hr/>
+									<div class="row">
+										<div class="col-sm-9">
+											<p class="list-group-item-text"><strong>Fecha: </strong> 13/02/2015</p>
+										</div>
+										<div class="col-sm-3">
+											<button type="submit" class="btn btn-danger btn-block">Eliminar</button>
+										</div>
+									</div>
+								</li>
+
+								<li class="list-group-item">
+									<p class="list-group-item-heading help-block pull-right"><strong>Autor: </strong>Usuario 1</p>
+									<h4 class="list-group-item-heading"><strong>Mandar a labar la roma</strong></h4>
+									<hr/>
+									<p class="list-group-item-text">Recojer la ropa de todos y mandar a la lavanderia a las 5:00 pm</p>
+									<hr/>
+									<div class="row">
+										<div class="col-sm-9">
+											<p class="list-group-item-text"><strong>Fecha: </strong> 13/02/2015</p>
+										</div>
+										<div class="col-sm-3">
+											<button type="submit" class="btn btn-danger btn-block">Eliminar</button>
+										</div>
+									</div>
+								</li>
+
+							</ul>  
+						</div>
+
+					</div>
+					
+				</div>
+
+			</div>									<!-- Fin Colunas elementos panel de contro -->
+
+			
+		</div>										<!-- Fin Coluna Panel de control-->
+	</div>											<!--Fin Colunas-->
+
+</div>
+
+
+<div class="modal fade" id="addlampara" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Agregar Lampara</h4>
+			</div>
+			<div class="modal-body">
+
+					<div class="form-group">
+						<label class="control-label">Estancia</label>
+						<input type="text" class="form-control" placeholder="Sala">					
+					</div>
+					<div class="form-group">
+						<label class="control-label">Descripción</label>
+						<textarea name="des" rows="3" class="form-control" placeholder="Lampara principal de la sala"></textarea>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+						<button type="submit" class="btn btn-primary">Guardar</button>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="addrecordatorio" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Agregar Recordatorio</h4>
+			</div>
+			<div class="modal-body">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Titulo">
+					</div>
+						<textarea class="form-control" rows="4" placeholder="Descripcion"></textarea>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+						<button type="submit" class="btn btn-primary">Guardar</button>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- jQuery .JS -->
+<script src="js/jquery.min.js"></script>
+<!-- Bootstrap .JS -->
+<script src="js/bootstrap.min.js"></script>
+
+<script src="js/bootstrap-toggle.min.js"></script>
+
+
+</body>
+</html>
